@@ -5,11 +5,14 @@
     <title>User Profile</title>
   </head>
   <body>
-    <h1><%= @user.username %>'s Profile</h1>
+    <h1><%= @user.username.capitalize %>'s Profile</h1>
     <ul>
-      <% @user.each do |habits| %>
-      <li><%= habit.rountines %></li>
+      <h3>Habits:</h3>
+      <% @user.habits.each do |habit| %>
+      <li><%= habit.routine %></li>
     </ul>
     <% end %>
+    <%= link_to "Create a New Habit" %><br>
+    <%= link_to "Logout", logout_path %>
   </body>
 </html>
