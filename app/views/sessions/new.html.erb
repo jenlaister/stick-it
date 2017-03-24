@@ -1,3 +1,9 @@
+<div class="center-align">
+  <h2>Log In</h2>
+  <% if flash[:notice] %>
+  <p><%= flash[:notice] %></p>
+  <% end %>
+</div>
 <!DOCTYPE html>
 <html>
   <head>
@@ -6,10 +12,10 @@
   </head>
   <body>
     <%= form_tag('/signin') do %>
-    <%= label_tag :name %>
-    <%= text_field_tag 'user[username]' %>
+    <%= label_tag :username %>
+    <%= text_field_tag :username %>
     <%= label_tag :password %>
-    <%= text_field_tag 'user[password]'%>
+    <%= text_field_tag :password %>
     <%= submit_tag "Sign In"%>
     <% end %>
   </body>

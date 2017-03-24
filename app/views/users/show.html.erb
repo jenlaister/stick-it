@@ -9,7 +9,7 @@
     <ul>
       <h3>Habits:</h3>
       <% @user.habits.each do |habit| %>
-      <li><%= habit.routine %></li>
+      <li><%= link_to "#{habit.routine}" %></li>
     </ul>
     <% end %>
     <%= link_to "Create a New Habit" %><br>

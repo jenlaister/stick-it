@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :routines
   get '/', to: 'application#root', as: 'root'
   resources :users, only: [:new, :create, :show] #edit?
   get '/signin', to: 'sessions#new', as: 'signin'
