@@ -8,12 +8,5 @@
     <% Habit.all.each do |habit| %>
     <h1><%= habit.routine.capitalize %>:</h1>
     <% end %>
-  <h3>Today's Progress</h3>
-    <%= form_tag("/routines/#{:id}") do %>
-      <input id="completed" type="checkbox" name="" value=""></input>
-      Notes: <input type="text" name="notes" value="notes"></input>
-      <input type="submit" value="Submit">
-      <% end %>
-      <p>* It takes about 21 days = 3 weeks for a habit to stick! *</p>
-      </body>
+    </body>
 </html>

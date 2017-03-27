@@ -10,11 +10,11 @@
       <h3>Habits:</h3>
       <h4>In Progress:</h4>
       <% @user.habits.each do |habit| %>
-      <li><%= link_to "#{habit.routine}" %></li>
+      <li><%= link_to "#{habit.routine}", routines_path(@routine) %></li>
     </ul>
     <% end %>
     <h4>Completed: </h4>
-    <%= link_to "Create a New Habit" %><br>
+    <%= link_to "Create a New Habit", routines_path(@routine) %><br>
     <%= link_to "Logout", logout_path %>
   </body>
 </html>
