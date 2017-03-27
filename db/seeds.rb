@@ -8,11 +8,6 @@ reading = Habit.create(routine: "reading")
 exercising = Habit.create(routine: "exercising")
 drink_water = Habit.create(routine: "drink water")
 
-# run = Routine.create(user_id: jenny.id, habit_id: running.id)
-# read = Routine.create(user_id: jing.id, habit_id: reading.id)
-# exercise = Routine.create(user_id: kevin.id, habit_id: exercising.id)
-# drink = Routine.create(user_id: ian.id, habit_id: drink_water.id)
-
 run = Routine.create(user_id: jenny.id, habit_id: running.id, note: "Why did I do this to myself?")
 read = Routine.create(user_id: jing.id, habit_id: reading.id, note: "Read me a story.")
 exercise = Routine.create(user_id: kevin.id, habit_id: exercising.id, note: "SQWATS!")
