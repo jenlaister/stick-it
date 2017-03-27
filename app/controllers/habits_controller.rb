@@ -4,6 +4,12 @@ class HabitsController < ApplicationController
     @habit = Habit.new
   end
 
+  def create
+    @habit = Habit.new(habit_params)
+    @habit.save
+    redirect_to @habit
+  end
+
   def show
     find_habit
   end
