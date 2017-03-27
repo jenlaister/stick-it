@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20170324211551) do
   create_table "routines", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "habit_id"
-    t.string   "notes"
+    t.string   "note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
