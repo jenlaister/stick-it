@@ -4,4 +4,9 @@ class Routine < ApplicationRecord
   belongs_to :user
   belongs_to :habit
 
+  def name
+    self.habit.routine
+  end
+
+
 end

@@ -9,8 +9,8 @@
     <p>* It takes about 21 days = 3 weeks for a habit to stick! *</p>
     <p>* It takes 66 days/about 2 months for habit to become a behavior *</p>
     <ul>
-      <% current_user.habits.each do |habit| %>
-      <li><%= link_to "#{habit.routine.capitalize}", routine_path(@routines) %></li><br>
+      <% current_user.routines.each do |routine| %>
+      <li><%= link_to "#{routine.name.capitalize}", routine_path(routine) %></li><br>
     </ul>
     <% end %>
   </body>
