@@ -11,21 +11,26 @@ class RoutinesController < ApplicationController
   end
 
   def show
-    find_routine
+    @routine = Routine.find(1)
+    current_user
+    # find_routine
   end
 
   def index
-    @routines = Routines.all
+    @routines = Routine.all
+    current_user
   end
 
   def edit
-    find_routine
+    @routine = Routine.find(params[:id])
+    # find_routine
   end
 
   def update
-    find_routine
+    @routine = Routine.find(params[:id])
+    # find_routine
     @routine = Routine.update(routine_params)
-    redirect_to @routine
+    redirect_to routine_path(@routine)
   end
 
   def destroy
@@ -41,9 +46,10 @@ class RoutinesController < ApplicationController
     params.require(:routine).require(:note)
   end
 
-  def find_routine
-    @routine = Routine.find(params[:id])
-  end
+  # def find_routine
+  #   binding.pry
+  #   @routine = Routine.find(params[:id])
+  # end
 
 
 end

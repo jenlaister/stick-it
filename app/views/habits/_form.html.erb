@@ -6,9 +6,9 @@
   </head>
   <body>
     <%= form_for @habit do |f| %>
-      <%= f.label :routine %>
-      <%= f.text_field :routine %><br>
-      <%= f.submit %>
+      <%= f.label :habit %>:<br>
+      <%= f.text_area :routine %><br>
+      <%= f.submit "Submit" %>
     <% end %>
   </body>
 </html>
