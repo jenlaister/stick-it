@@ -8,10 +8,11 @@ Rails.application.routes.draw do
   get '/logout', to: 'sessions#destroy', as: 'logout'
 
   # get '/routines/:id', to: 'routines#show'
+  post '/routines/:id', to: 'routines#update'
 
   get '/habits/new', to: 'habits#new', as: 'new_habit'
 
-  resources :users, only: [:new, :create, :show] #edit?
+  resources :users
   resources :routines
   resources :habits
 

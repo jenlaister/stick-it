@@ -11,9 +11,17 @@ class UsersController < ApplicationController
     redirect_to @user
   end
 
-  # def edit
-  #   current_user
-  # end
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    @user.update(user_params)
+    redirect_to @user
+  end
+
+
 
   def show
     @user = User.find(params[:id])

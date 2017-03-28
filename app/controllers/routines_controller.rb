@@ -22,13 +22,11 @@ class RoutinesController < ApplicationController
   end
 
   def edit
-    @routine = Routine.find(params[:id])
-    # find_routine
+    find_routine
   end
 
   def update
-    @routine = Routine.find(params[:id])
-    # find_routine
+    find_routine
     @routine = Routine.update(routine_params)
     redirect_to routine_path(@routine)
   end
@@ -46,10 +44,10 @@ class RoutinesController < ApplicationController
     params.require(:routine).require(:note)
   end
 
-  # def find_routine
-  #   binding.pry
-  #   @routine = Routine.find(params[:id])
-  # end
+  def find_routine
+    # binding.pry
+    @routine = Routine.find(params[:id])
+  end
 
 
 end

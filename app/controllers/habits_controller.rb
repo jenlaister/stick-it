@@ -6,8 +6,9 @@ class HabitsController < ApplicationController
 
   def create
     @habit = Habit.new(habit_params)
-    @habit.save
-    redirect_to @habit
+    current_user.habits.push(@habit)
+    # @habit.save
+    redirect_to routines_path(@routine)
   end
 
   def show
@@ -21,7 +22,7 @@ class HabitsController < ApplicationController
   def update
     find_habit
     @habit = Habit.update(habit_params)
-    redirect_to @habit
+    redirect_to routine_path(@routines)
   end
 
   def destroy
@@ -33,7 +34,7 @@ class HabitsController < ApplicationController
   private
 
   def habit_params
-    params.require(:habit).require(:routine)
+    params.require(:habit).permit(:routine)
   end
 
   def find_habit
