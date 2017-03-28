@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   get '/signin', to: 'sessions#new', as: 'signin'
   post '/signin', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy', as: 'logout'
-  get '/routines/:id', to: 'routines#show'
+
+  # get '/routines/:id', to: 'routines#show'
+
+  get '/habits/new', to: 'habits#new', as: 'new_habit'
+
   resources :users, only: [:new, :create, :show] #edit?
   resources :routines
   resources :habits

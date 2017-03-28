@@ -5,8 +5,24 @@
     <title>Routines</title>
   </head>
   <body>
-    <% Habit.all.each do |habit| %>
-    <h1><%= habit.routine.capitalize %>:</h1>
+    <h1>Today's Progress:</h1>
+    <% current_user.habits.each do |habit| %>
+    <h3><%= habit.routine.capitalize %>:</h3>
     <% end %>
+    <%= form_tag("/routines/#{:id}") do %>
+    Completed: <input id="completed" type="checkbox" name="completed" value=""></input><br>
+    Notes: <textarea type="text" name="notes" value="notes"></textarea><br>
+    <input type="submit" value="Submit">
+    <% end %>
+    <h3>Progress Notes:</h3>
+    <ul>
+      <% current_user.routines.each do |routine| %>
+        <% Note.all.each do |note| %>
+          <% if note.routine_id == routine.id %>
+            <p><%= localize(note.created_at, :format => :long) %>: <%= routine.note %></p>
+            <% end %>
+          <% end %>
+        <% end %>
+    </ul>
     </body>
 </html>

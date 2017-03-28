@@ -8,8 +8,10 @@
     <h1>In-Progress Habits:</h1>
     <p>* It takes about 21 days = 3 weeks for a habit to stick! *</p>
     <p>* It takes 66 days/about 2 months for habit to become a behavior *</p>
-    <% @routines.each do |routine| %>
-    <% link_to "#{routine}", routines_path(@routine) %>
+    <ul>
+      <% current_user.habits.each do |habit| %>
+      <%= link_to "#{habit.routine}", routine_path(@routines) %>
+    </ul>
     <% end %>
   </body>
 </html>
