@@ -8,5 +8,6 @@ class Routine < ApplicationRecord
     self.habit.routine
   end
 
+  
 
 end

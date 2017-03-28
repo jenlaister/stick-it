@@ -11,9 +11,8 @@ class RoutinesController < ApplicationController
   end
 
   def show
-    @routine = Routine.find(1)
+    find_routine
     current_user
-    # find_routine
   end
 
   def index
@@ -45,7 +44,6 @@ class RoutinesController < ApplicationController
   end
 
   def find_routine
-    # binding.pry
     @routine = Routine.find(params[:id])
   end
 
