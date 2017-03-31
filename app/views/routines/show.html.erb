@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Routines</title>
+  </head>
+  <body>
+    <h1>Today's Progress:</h1>
+    <h3><%= @routine.name.capitalize %>:</h3>
+    <%= form_for @routine do |f| %>
+      <%= f.label "Completed: " %>
+      <%= f.check_box :streak %><br>
+      <%= f.label "Notes: " %>
+      <%= f.text_area :notes %><br>
+      <%= f.hidden_field :routine_id, value: @routine.id %>
+      <%= f.submit "Submit" %>
+    <% end %>
+    <h3>Progress Notes:</h3>
+    <ul>
+      <% @routine.notes.each do |note| %>
+          <p><%= localize(note.created_at, :format => :long) %>: <%= note.comment %></p>
+        <% end %>
+    </body>
+</html>

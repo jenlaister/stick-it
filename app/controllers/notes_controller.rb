@@ -5,10 +5,12 @@ class NotesController < ApplicationController
   end
 
   def create
-    @note = Note.new(comment: [:notes])
+    # binding.pry
+    @note = Note.new(note_params)
     @note.save
-    redirect_to @note
+    redirect_to notes_path
   end
+
 
   def show
     @routine = Routine.find(params[:routine_id])
@@ -21,16 +23,11 @@ class NotesController < ApplicationController
     # binding.pry
   end
 
-  # @habit = Habit.new(habit_params)
-  # current_user.habits.push(@habit)
-  # # @habit.save
-  # redirect_to routines_path(@routine)
-
   private
 
-  # def note_params
-  #   params.require(:note).permit(:comment)
-  # end
+  def note_params
+    params.require(:note).permit(:routine_id, :comment)
+  end
 
   def find_note
     @note = Note.find(params[:id])
