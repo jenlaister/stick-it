@@ -26,6 +26,7 @@ class RoutinesController < ApplicationController
 
   def update
     find_routine
+    current_user
     @routine = Routine.update(routine_params)
     redirect_to routine_path(@routine)
   end
@@ -40,10 +41,11 @@ class RoutinesController < ApplicationController
   private
 
   def routine_params
-    params.require(:routine).require(:note)
+    params.require(:routine).permit(:notes, :habit_id, :streak)
   end
 
   def find_routine
+    # binding.pry
     @routine = Routine.find(params[:id])
   end
 
