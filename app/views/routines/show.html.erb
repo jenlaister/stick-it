@@ -7,9 +7,9 @@
   <body>
     <h1>Today's Progress:</h1>
     <h3><%= @routine.name.capitalize %>:</h3>
-    <%= form_tag("/routines/#{:id}") do %>
+    <%= form_tag("/notes") do %>
     Completed: <input id="completed" type="checkbox" name="completed" value=""></input><br>
-    Notes: <textarea type="text" name="notes" value="notes"></textarea><br>
+    Notes: <textarea id="notes" type="text" name="notes" value="notes"></textarea><br>
     <input type="submit" value="Submit">
     <% end %>
     <h3>Progress Notes:</h3>
@@ -17,6 +17,6 @@
       <% @routine.notes.each do |note| %>
           <p><%= localize(note.created_at, :format => :long) %>: <%= note.comment %></p>
         <% end %>
-    </ul>
+        <form action="/songs" method="post">
     </body>
 </html>
