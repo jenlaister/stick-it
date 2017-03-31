@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+@import "neat";
 
 body {
   background-color: #d6f0ef;
