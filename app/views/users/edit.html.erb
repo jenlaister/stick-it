@@ -5,17 +5,30 @@
     <title></title>
   </head>
   <body>
-    <h1>Edit Your Profile:</h1>
-      <%= form_for @user do |f| %>
-        <%= f.label :username %>
-        <%= f.text_field :username %><br>
-        <%= f.label :email %>
-        <%= f.text_field :email %><br>
-        <%= f.label :password %>
-        <%= f.password_field :password %><br>
-        <%= f.label "Confirm Password" %>
-        <%= f.password_field :password_confirmation %><br>
-        <%= f.submit "Update Profile" %>
+    <div class="user">
+    <header class="user__header">
+        <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" />
+        <h2>Edit Your Profile</h2>
+    </header><br>
+    <div class="center-align">
+      <%= form_for @user, class: 'form' do |f| %>
+      <div class="form__group">
+        <%= f.label 'Username: ' %>
+          <%= f.text_field :username, placeholder: 'Enter Your Username', class: 'form__input' %><br>
+      </div>
+    <div class="form__group">
+      <%= f.label 'Email:' %>
+      <%= f.text_field :email, placeholder: 'Enter Your Email Address', class: 'form__input' %><br>
+    </div>
+      <div class="form__group">
+        <%= f.label 'Password:' %>
+        <%= f.password_field :password, placeholder: 'Enter Your Password', class: 'form__input' %><br>
+      </div>
+      <div class="form__group">
+        <%= f.password_field :password_confirmation, placeholder: 'Confirm Your Password', class: 'form__input' %><br>
+      </div>
+        <%= f.submit "Update Profile", class: 'btn'%>
     <% end %>
+  </div>
   </body>
 </html>

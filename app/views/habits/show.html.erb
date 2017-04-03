@@ -8,7 +8,8 @@
     <h1>Habit:</h1>
       <%= @habit.routine %>
       <%= form_for @habit do |f| %>
-        Delete: <input id="habit" type="checkbox" name="habit"></input><br>
+      <%= f.label :habit, 'Delete' %>
+      <%= f.check_box @habit.id %>
         <%= f.submit "Delete Habit" %>
       <% end %>
   </body>

@@ -14,3 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$('.btn').on('click', function () {
+    $('.form').addClass('form--no');
+});

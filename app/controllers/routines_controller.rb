@@ -25,23 +25,16 @@ class RoutinesController < ApplicationController
   end
 
   def update
-    find_routine
+    @routine = Routine.find(params[:id])
     current_user
-    if @routine.update(notes: params[:routine][:notes])
-      if !params[:routine][:notes].empty?
-          @note = Note.find_or_create_by(notes: params[:routine][:notes])
-          @routine.notes << @note
-        end
-        redirect_to routine_path(@routine)
-      end
+    # @routine.notes = params[:routine][:notes] ? params[:routine][:notes] : nil
+    # binding.pry
+    # @routine.update(routine_params)
+    @routine.update(notes: params[:routine][:notes])
+    redirect_to @routine
   end
 
-#   "commit"=>"Submit", "id"=>"2"}
-#  Routine Load (0.2ms)  SELECT  "routines".* FROM "routines" WHERE "routines"."id" = ? LIMIT ?  [["id", 2], ["LIMIT", 1]]
-#  User Load (0.2ms)  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?  [["id", 2], ["LIMIT", 1]]
-# No template found for RoutinesController#update, rendering head :no_content
-
-
+  # @routine = response.dig('routine', 'notes')
 
 
   def destroy
@@ -54,7 +47,9 @@ class RoutinesController < ApplicationController
   private
 
   def routine_params
-    params.require(:routine).permit(:id, :streak, notes: [:routine][:notes])
+    # params.require(:routine).permit(:streak, :notes)
+    # binding.pry
+    # params.require(:routine).permit(:id, :streak, notes: [:routine][:notes])
   end
 
   def find_routine

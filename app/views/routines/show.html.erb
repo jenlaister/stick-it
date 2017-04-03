@@ -7,13 +7,13 @@
   <body>
     <h1>Today's Progress:</h1>
     <h3><%= @routine.name.capitalize %>:</h3>
-    <%= form_for @routine do |f| %>
-      <%= f.label "Completed: " %>
-      <%= f.check_box :streak %><br>
-      <%= f.label "Notes: " %>
-      <%= f.text_area :notes %><br>
-      <%= f.hidden_field :routine_id, value: @routine.id %>
-      <%= f.submit "Submit" %>
+    <%= form_tag("/routines/#{@routine.id}", method: 'post') do %>
+    <%= label_tag 'routine[:streak]', 'Completed: ' %>
+    <%= check_box @routine.streak, 'Completed' %><br>
+    <%= label_tag 'routine[:notes]', 'Notes: ' %><br>
+    <%= text_area @routine.notes, 'Notes' %><br>
+    <%= hidden_field_tag @routine.id, @routine.id %>
+    <%= submit_tag 'Submit' %>
     <% end %>
     <h3>Progress Notes:</h3>
     <ul>
