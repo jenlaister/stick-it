@@ -30,10 +30,10 @@ class RoutinesController < ApplicationController
     @note = Note.new(comment: params[:notes][:Notes], routine_id: @routine.id)
     @note.progress(complete: params[:streak][:Completed].to_i)
     @routine.notes << @note
+    binding.pry
     if @note.routine.streak >= 21
       flash[:alert] = "Hey you! Congrats, you've successfully made a habit!"
     end
-    # binding.pry
     redirect_to @routine
   end
 
