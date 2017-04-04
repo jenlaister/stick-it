@@ -7,11 +7,16 @@
   <body>
     <h1>Today's Progress:</h1>
     <h3><%= @routine.name.capitalize %>:</h3>
+    <div align="center">
+      <% if flash[:alert] %>
+      <p><%= flash[:alert] %></p><br>
+      <% end %>
+    </div>
     <%= form_tag("/routines/#{@routine.id}", method: 'post') do %>
     <%= label_tag 'routine[:streak]', 'Completed: ' %>
-    <%= check_box @routine.streak, 'Completed' %><br>
+    <%= check_box :streak, 'Completed' %><br>
     <%= label_tag 'routine[:notes]', 'Notes: ' %><br>
-    <%= text_area @routine.notes, 'Notes' %><br>
+    <%= text_area :notes, 'Notes' %><br>
     <%= hidden_field_tag @routine.id, @routine.id %>
     <%= submit_tag 'Submit' %>
     <% end %>

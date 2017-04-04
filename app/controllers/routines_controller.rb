@@ -27,15 +27,15 @@ class RoutinesController < ApplicationController
   def update
     @routine = Routine.find(params[:id])
     current_user
-    # @routine.notes = params[:routine][:notes] ? params[:routine][:notes] : nil
+    @note = Note.new(comment: params[:notes][:Notes], routine_id: @routine.id)
+    @note.progress(complete: params[:streak][:Completed].to_i)
+    @routine.notes << @note
+    if @note.routine.streak >= 21
+      flash[:alert] = "Hey you! Congrats, you've successfully made a habit!"
+    end
     # binding.pry
-    # @routine.update(routine_params)
-    @routine.update(notes: params[:routine][:notes])
     redirect_to @routine
   end
-
-  # @routine = response.dig('routine', 'notes')
-
 
   def destroy
     find_routine

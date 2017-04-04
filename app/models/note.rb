@@ -6,9 +6,15 @@ class Note < ApplicationRecord
     self.comment.note
   end
 
-  # def progress
-  #   if self.created_at ==
-  # end
+  def progress(complete:)
+    # today = Time.now.to_date
+    if complete == 1
+      self.routine.streak += 1
+    else
+      self.routine.streak.reset
+    end
+  end
 
+#custom validation for 1 note/day
 
 end
