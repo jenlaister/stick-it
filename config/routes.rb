@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   # get '/routines/:id', to: 'routines#show'
   post '/routines/:id', to: 'routines#update'
 
-  get '/habits/new', to: 'habits#new', as: 'new_habit'
+  # get '/habits/new', to: 'habits#new', as: 'new_habit'
 
   resources :users
   resources :routines

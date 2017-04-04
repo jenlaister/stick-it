@@ -8,8 +8,8 @@
     <%= form_for @routine do |f| %>
       <%= f.label :routine %>
       <%= f.text_field :routine %>
-      <%= f.label :note %>
-      <%= f.text_field :note %>
+      <%= f.label :notes %>
+      <%= f.text_field :notes.content %>
       <%= f.submit "Submit" %>
     <% end %>
   </body>

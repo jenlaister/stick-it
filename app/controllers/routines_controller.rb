@@ -25,10 +25,16 @@ class RoutinesController < ApplicationController
   end
 
   def update
-    find_routine
+    @routine = Routine.find(params[:id])
     current_user
-    @routine = Routine.update(routine_params)
-    redirect_to routine_path(@routine)
+    @note = Note.new(comment: params[:notes][:Notes], routine_id: @routine.id)
+    @note.progress(complete: params[:streak][:Completed].to_i)
+    @routine.notes << @note
+    binding.pry
+    if @note.routine.streak >= 21
+      flash[:alert] = "Hey you! Congrats, you've successfully made a habit!"
+    end
+    redirect_to @routine
   end
 
   def destroy
@@ -41,11 +47,12 @@ class RoutinesController < ApplicationController
   private
 
   def routine_params
-    params.require(:routine).permit(:notes, :habit_id, :streak)
+    # params.require(:routine).permit(:streak, :notes)
+    # binding.pry
+    # params.require(:routine).permit(:id, :streak, notes: [:routine][:notes])
   end
 
   def find_routine
-    # binding.pry
     @routine = Routine.find(params[:id])
   end
 

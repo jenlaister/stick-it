@@ -13,8 +13,21 @@
  *= require_tree .
  *= require_self
  */
-@import "neat";
 
+@import "bourbon";
+
+
+/*
 body {
   background-color: #d6f0ef;
+}*/
+
+/*body {
+  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/congruent_pentagon.png");
+}*/
+
+body {
+  animation: move 10s ease infinite;
+  transform: translate3d(0, 0, 0);
+  background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%);
 }
