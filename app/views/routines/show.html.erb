@@ -5,25 +5,40 @@
     <title>Routines</title>
   </head>
   <body>
-    <h1>Today's Progress:</h1>
-    <h3><%= @routine.name.capitalize %>:</h3>
+    <div>
+    <h1 align='center'>Today's Progress:</h1>
+    <h2 align='center'><%= @routine.name.capitalize %>:</h2>
     <div align="center">
       <% if flash[:alert] %>
       <p><%= flash[:alert] %></p><br>
       <% end %>
     </div>
     <%= form_tag("/routines/#{@routine.id}", method: 'post') do %>
-    <%= label_tag 'routine[:streak]', 'Completed: ' %>
-    <%= check_box :streak, 'Completed' %><br>
+    <!-- <div class="wrapper"> -->
+      <div class="checkbox">
+        <%= label_tag 'routine[:streak]', 'Completed: '%>
+        <%= check_box :streak, 'Completed', class: 'checkbox'%><br>
+        <!-- <div class="checkbox">
+          <input type="checkbox" id="cb" name="cb" />
+          <label for="cb">Completed: </label>
+        </div> -->
+      <!-- </div> -->
+    </div>
     <%= label_tag 'routine[:notes]', 'Notes: ' %><br>
     <%= text_area :notes, 'Notes' %><br>
     <%= hidden_field_tag @routine.id, @routine.id %>
     <%= submit_tag 'Submit' %>
     <% end %>
-    <h3>Progress Notes:</h3>
-    <ul>
-      <% @routine.notes.each do |note| %>
-          <p><%= localize(note.created_at, :format => :long) %>: <%= note.comment %></p>
+  <div class="container">
+    <section class="todo">
+    <h2 align="center">Progress Notes: </h2>
+      <ul class="todo-list">
+        <% @routine.notes.each do |note| %>
+          <li><h3><%= localize(note.created_at, :format => :long) %>: <%= note.comment %></h3></li>
+      </ul>
+    </section>
         <% end %>
+      </div>
+      </div>
     </body>
 </html>
