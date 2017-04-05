@@ -29,7 +29,6 @@ class RoutinesController < ApplicationController
     current_user
     if !!@note = Note.where(created_at: Time.now.beginning_of_day.utc..Time.now.end_of_day.utc).first_or_create
       flash[:alert] = "You've already logged your progress for today."
-      binding.pry
     else
       @note = Note.new(comment: params[:notes][:Notes], routine_id: @routine.id)
       @note.progress(complete: params[:streak][:Completed].to_i)
