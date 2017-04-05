@@ -14,16 +14,12 @@
       <% end %>
     </div>
     <%= form_tag("/routines/#{@routine.id}", method: 'post') do %>
-    <!-- <div class="wrapper"> -->
-      <div class="checkbox">
-        <%= label_tag 'routine[:streak]', 'Completed: '%>
-        <%= check_box :streak, 'Completed', class: 'checkbox'%><br>
-        <!-- <div class="checkbox">
-          <input type="checkbox" id="cb" name="cb" />
-          <label for="cb">Completed: </label>
-        </div> -->
-      <!-- </div> -->
-    </div>
+    <div class="boxes">
+      <input type="checkbox" id="box-1">
+      <label for="box-1">Sustainable typewriter cronut</label>
+    <%= label_tag 'routine[:streak]', 'Completed: '%>
+    <%= check_box :streak, 'Completed', id: 'box-1'%><br>
+  </div>
     <%= label_tag 'routine[:notes]', 'Notes: ' %><br>
     <%= text_area :notes, 'Notes' %><br>
     <%= hidden_field_tag @routine.id, @routine.id %>
