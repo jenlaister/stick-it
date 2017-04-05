@@ -166,7 +166,7 @@ html.user_show {
           user-select: none;
 }
 
-h1 {
+.h1 {
   margin: 0;
   padding: 20px;
   background-color: rgba(255, 255, 255, .4);
@@ -186,14 +186,14 @@ h1 {
   counter-reset: done-items undone-items;
 }
 
-h2 {
+.h2 {
   position: relative;
   margin: 0;
   padding: 10px 0;
   font-size: 1.2em;
 }
 
-h2::before {
+.h2::before {
   content: '';
   display: block;
   position: absolute;
