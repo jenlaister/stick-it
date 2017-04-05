@@ -142,11 +142,11 @@ body {
   box-sizing: border-box;
 }
 
-html {
+html.user_show {
   min-height: 100%;
 }
 
-body {
+.body_user_show {
   margin: 20px;
   color: #435757;
   background: -webkit-linear-gradient(110deg, #d0b782 20%, #a0cecf 80%);
@@ -154,7 +154,7 @@ body {
   font: 500 1.2em/1.2 'Roboto', sans-serif;
 }
 
-.container {
+.container_user_show {
   max-width: 450px;
   margin: 0 auto;
   border-top: 5px solid #435757;
@@ -249,7 +249,7 @@ h4::after {
 }
 
 /* hide inputs offscreen, but at the same vertical positions as the correpsonding labels, so that tabbing scrolls the viewport as expected */
-input {
+input.user_show {
   display: block;
   height: 53px;
   margin: 0 0 -53px -9999px;
@@ -260,14 +260,14 @@ input {
   counter-increment: undone-items;
 }
 
-input:checked {
+input.user_show:checked {
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
   counter-increment: done-items;
 }
 
-label {
+label.user_show {
   display: block;
   position: relative;
   padding: 15px 0 15px 45px;
@@ -280,7 +280,7 @@ label {
           animation: undone .5s;
 }
 
-label::before {
+label.user_show::before {
   content: '\f10c'; /* circle outline */
   display: block;
   position: absolute;
@@ -289,11 +289,11 @@ label::before {
   font: 1.5em 'FontAwesome';
 }
 
-label:hover, input:focus + label {
+label.user_show:hover, input:focus + label {
   background-color: rgba(255, 255, 255, .2);
 }
 
-input:checked + label {
+input.user_show:checked + label {
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
@@ -301,7 +301,7 @@ input:checked + label {
           animation: done .5s;
 }
 
-input:checked + label::before {
+input.user_show:checked + label::before {
   content: '\f058'; /* circle checkmark */
 }
 
