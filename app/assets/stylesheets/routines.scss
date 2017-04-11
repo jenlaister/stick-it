@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 // Mixin for keyframes
 
-//Checkbox
+//Completed Checkbox
 
 @import "bourbon";
 
@@ -89,7 +89,7 @@ $secondaryColor: #f2f2f2;
   }
 }
 
-// Notes list
+// Notes List
 .todo {
     position: relative;
     width: 350px;
@@ -137,7 +137,7 @@ $secondaryColor: #f2f2f2;
   height: 75px;
 }
 
-//button
+//Submit Note + Streak Button
 .button-three{
   text-align: center;
   cursor: pointer;
@@ -185,3 +185,5 @@ $secondaryColor: #f2f2f2;
     opacity: 1;
     transition: 0s
 }
+
+//Routines Index
