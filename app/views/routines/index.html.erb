@@ -10,7 +10,7 @@
     <p>* It takes 66 days/about 2 months for habit to become a behavior *</p>
     <ul>
       <% current_user.routines.each do |routine| %>
-      <li><%= link_to "#{routine.name.capitalize}", routine_path(routine) %></li><br>
+      <li><%= link_to "#{routine.habit}", routine_path(routine) %></li><br>
     </ul>
     <% end %>
   </body>

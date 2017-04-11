@@ -7,7 +7,6 @@ class HabitsController < ApplicationController
   def create
     @habit = Habit.new(habit_params)
     current_user.habits << @habit
-    # @habit.save
     redirect_to routines_path
   end
 

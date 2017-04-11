@@ -9,15 +9,12 @@
       <h1 class="h1"><%= @user.display_name %>'s Profile</h1>
     <ul>
       <h2 class="h2">Habits: </h2>
-      <!-- <div class="items"> -->
       <h3 class="h3">In Progress:</h3>
       <% @user.habits.each do |habit| %>
-      <div class="items"><%= link_to "#{habit.routine}", routines_path(@routine) %></div>
+      <div class="items"><%= link_to "#{habit.routine.capitalize}", routines_path(@routine) %></div>
     </ul>
     <% end %>
     <h3 class="h3">Completed: </h3>
-    <h4 class="done" aria-hidden="true">Completed: </h4>
-    <h4 class="undone" aria-hidden="true">In Progress: </h4>
     <%= link_to "Create a New Habit", new_habit_path %><br>
     <%= link_to "Edit Your Profile", edit_user_path %><br>
     <%= link_to "Logout", logout_path %>

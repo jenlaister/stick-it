@@ -27,16 +27,17 @@ class RoutinesController < ApplicationController
   def update
     @routine = Routine.find(params[:id])
     current_user
-    if !!@note = Note.where(created_at: Time.now.beginning_of_day.utc..Time.now.end_of_day.utc).first_or_create
+    if !!note = Note.where(created_at: Time.now.beginning_of_day.utc..Time.now.end_of_day.utc).first_or_create && @routine.uniq
       flash[:alert] = "You've already logged your progress for today."
     else
       @note = Note.new(comment: params[:notes][:Notes], routine_id: @routine.id)
       @note.progress(complete: params[:streak][:Completed].to_i)
       @routine.notes << @note
     end
-    if @note.routine.streak >= 21
-      flash[:alert] = "Hey you! Congrats, you've successfully made a habit!"
-    end
+    # binding.pry
+    # if @note.routine.streak >= 21
+    #   flash[:alert] = "Hey you! Congrats, you've successfully made a habit!"
+    # end
     redirect_to @routine
   end
 

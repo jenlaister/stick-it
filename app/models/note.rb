@@ -1,17 +1,22 @@
 class Note < ApplicationRecord
 
   belongs_to :routine
-  # validate :one_note_per_day, :on => :new, :completed
-  # scope :note_limit, -> { where(:created_at => (Time.now.beginning_of_day..Time.now.end_of_day)) }
 
 
   def progress(complete:)
+    # binding.pry
     if complete == 1
       self.routine.streak += 1
     else
       self.routine.streak.reset
     end
   end
+
+
+  def content
+   self.notes.comment
+  end
+
 
   #custom validation for 1 note/day
   # def today

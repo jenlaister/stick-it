@@ -5,21 +5,16 @@
     <title>Routines</title>
   </head>
   <body>
-    <div>
-    <h1 align='center'>Today's Progress:</h1>
-    <h2 align='center'><%= @routine.name.capitalize %>:</h2>
+    <h1>Today's Progress:</h1>
+    <h3><%= @routine.name.capitalize %>:</h3>
     <div align="center">
       <% if flash[:alert] %>
       <p><%= flash[:alert] %></p><br>
       <% end %>
     </div>
     <%= form_tag("/routines/#{@routine.id}", method: 'post') do %>
-    <div class="boxes">
-      <input type="checkbox" id="box-1">
-      <label for="box-1">Sustainable typewriter cronut</label>
     <%= label_tag 'routine[:streak]', 'Completed: '%>
-    <%= check_box :streak, 'Completed', id: 'box-1'%><br>
-  </div>
+    <%= check_box :streak, 'Completed' %><br>
     <%= label_tag 'routine[:notes]', 'Notes: ' %><br>
     <%= text_area :notes, 'Notes' %><br>
     <%= hidden_field_tag @routine.id, @routine.id %>
@@ -34,7 +29,8 @@
       </ul>
     </section>
         <% end %>
-      </div>
-      </div>
+      </div><br>
+      <%= link_to 'Go back to my routines', routines_path %><br>
+      <%= link_to 'Back to profile page', user_path(current_user) %>
     </body>
 </html>
