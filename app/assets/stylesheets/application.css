@@ -16,18 +16,11 @@
 
 @import "bourbon";
 
-
-/*
-body {
-  background-color: #d6f0ef;
-}*/
-
-/*body {
-  background: url("http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/congruent_pentagon.png");
-}*/
-
 body {
   animation: move 10s ease infinite;
   transform: translate3d(0, 0, 0);
-  background: linear-gradient(45deg, rgba(73, 212, 157, 0.35) 10%, #d9f3ff 90%);
+  background: -webkit-linear-gradient(110deg, rgba(235, 207, 146, 0.58), #a0cecf 80%);
+  background: linear-gradient(-20deg, rgba(190, 142, 82, 0.45) 20%, #a0cecf 80%);
+  /*background: linear-gradient(45deg, rgba(73, 212, 157, 0.35) 10%, #d9f3ff 90%);*/
+  /*background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%);*/
 }
