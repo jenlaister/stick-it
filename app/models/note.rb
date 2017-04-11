@@ -7,6 +7,7 @@ class Note < ApplicationRecord
     # binding.pry
     if complete == 1
       self.routine.streak += 1
+      self.routine.save
     else
       self.routine.streak.reset
     end
