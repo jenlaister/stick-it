@@ -20,6 +20,3 @@
 $('.btn').on('click', function () {
     $('.form').addClass('form--no');
 });
-
-
-//Routines Index List

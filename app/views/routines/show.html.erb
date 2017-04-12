@@ -5,8 +5,23 @@
     <title>Routines</title>
   </head>
   <body>
-    <h1 align='center'>Today's Progress:</h1>
-    <h2 align='center'><%= @routine.name.capitalize %>:</h2>
+    <figure>
+			<header>
+				<script>
+				var	day = new Date().getDay();
+					week = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+
+				document.write(week[day]);
+				</script>
+			</header>
+			<section>
+				<script>
+					document.write(new Date().getDate());
+				</script>
+			</section>
+		</figure>
+    <h1 align='center'><%= @routine.name.capitalize %>:</h1>
+    <h2 align='center'>Today's Progress:</h2>
     <div align="center">
       <% if flash[:alert] %>
       <p><%= flash[:alert] %></p><br>
