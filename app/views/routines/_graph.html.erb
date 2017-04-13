@@ -6,7 +6,7 @@
   </head>
   <body>
     <div id="graph">
-      <%= line_chart Note.all.group_by(:created_at).count %>
+      <%= line_chart Routine.all.map { |routine| {routine: routine, data: routine.streak.group_by_day(:created_at).count}} %>
     </div>
   </body>
 </html>
