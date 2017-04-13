@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="graph">
+      <%= line_chart Note.all.group_by(:created_at).count %>
+    </div>
+  </body>
+</html>

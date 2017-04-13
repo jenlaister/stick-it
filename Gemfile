@@ -20,9 +20,11 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
-gem "bourbon"
-gem "neat"
-gem "chartkick"
+gem 'bourbon'
+gem 'neat'
+gem 'chartkick'
+gem 'groupdate'
+gem 'active_median'
 
 
 # Use jquery as the JavaScript library
