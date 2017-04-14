@@ -11,8 +11,9 @@
     <% current_user.routines.each do |routine| %>
     <h2><%= link_to "#{routine.name.capitalize}", routine_path(routine) %></h2><br>
     <% end %>
-    <div>
-      <%= line_chart Routine.all.map { |routine| {routine: routine.name, data: routine.notes.group_by_day(:created_at).count}} %>
+    <br>
+    <div class="col-xs-4">
+      <%= render 'graph' %>
   </div>
 </div>
   </body>
