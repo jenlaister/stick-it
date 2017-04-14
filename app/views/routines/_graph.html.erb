@@ -5,8 +5,8 @@
     <title></title>
   </head>
   <body>
-    <div id="graph">
-      <%= line_chart Routine.all.map { |routine| {routine: routine, data: routine.streak.group_by_day(:created_at).count}} %>
+    <div id="graph" align="center">
+      <%= line_chart current_user.routines.map { |routine| {name: routine.name.capitalize, data: routine.notes.group_by_day(:created_at).count} }, title: "Routine Progress", xtitle: "Days Logged", ytitle: "Streak", min: 0, max: 1, width: "900px", height: "550px" %>
     </div>
   </body>
 </html>

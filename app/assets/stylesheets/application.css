@@ -23,3 +23,10 @@ body {
   /*background: linear-gradient(45deg, rgba(73, 212, 157, 0.35) 10%, #d9f3ff 90%);*/
   /*background: linear-gradient(45deg, #49D49D 10%, #A2C7E5 90%);*/
 }
+
+
+
+/*.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+}*/
