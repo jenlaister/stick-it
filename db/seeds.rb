@@ -7,11 +7,13 @@ running = Habit.create(routine: "running")
 reading = Habit.create(routine: "reading")
 exercising = Habit.create(routine: "exercising")
 drink_water = Habit.create(routine: "drink water")
+cook = Habit.create(routine: "cook dinner")
 
 run = Routine.create(user_id: jenny.id, habit_id: running.id)
 read = Routine.create(user_id: jing.id, habit_id: reading.id)
 exercise = Routine.create(user_id: kevin.id, habit_id: exercising.id)
 drink = Routine.create(user_id: ian.id, habit_id: drink_water.id)
+cook = Routine.create(user_id: jenny.id, habit_id: cook.id, streak: 21)
 
 Note.create(routine_id: run.id, comment: "Why did I do this to myself?")
 Note.create(routine_id: read.id, comment: "Read me a story.")

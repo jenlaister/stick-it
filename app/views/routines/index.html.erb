@@ -7,14 +7,15 @@
   <body>
       <h1>In-Progress Habits:</h1>
       <p>* It takes about 21 days = 3 weeks for a habit to stick! *</p>
-      <p>* It takes 66 days/about 2 months for habit to become a behavior *</p>
-    <% current_user.routines.each do |routine| %>
-    <h2><%= link_to "#{routine.name.capitalize}", routine_path(routine) %></h2><br>
-    <% end %>
-    <br>
-    <div class="col-xs-4">
-      <%= render 'graph' %>
-  </div>
+      <p>* It takes 66 days/about 2 months for habit to become a behavior *</p><br>
+      <br>
+        <ul>
+          <% current_user.routines.each do |routine| %>
+          <h2><li><%= link_to "#{routine.name.capitalize}", routine_path(routine) %></li></h2><br>
+          <% end %>
+        </ul>
+        <br>
+</div>
 </div>
   </body>
 </html>
