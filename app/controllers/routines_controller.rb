@@ -34,6 +34,7 @@ class RoutinesController < ApplicationController
       @routine.notes << @note
     end
     if @note.routine.streak >= 21
+      binding.pry
       flash[:alert] = "Yay! Congrats, you've successfully made a habit!"
     end
     redirect_to @routine
