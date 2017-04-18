@@ -1,0 +1,4 @@
+<div>
+  <% data = @routine.notes.group_by_day(:created_at).count %>
+  <%= line_chart data, title: "#{@routine.name.capitalize}'s Progress", xtitle: "Days Logged", ytitle: "Streak", min: 0, max: 1, width: "900px", height: "550px" %>
+</div>
