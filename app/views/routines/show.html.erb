@@ -1,9 +1,11 @@
     <figure>
 			<header>
 				<script>
-				var	day = new Date().getDay();
-					week = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
-				document.write(week[day]);
+				// var	day = new Date().getDay();
+				// 	week = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
+				// document.write(week[day]);
+        // <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script type="text/javascript" src='./routines.js'></script>
 				</script>
 			</header>
 			<section>
@@ -19,6 +21,13 @@
       <p><%= flash[:alert] %></p><br>
       <% end %>
     </div>
+    <%= form_for @routine do |f| %>
+      <%= f.label :streak %>
+      <%= f.check_box :streak %>
+      <%= f.label :notes %>
+      <%= f.text_area :notes %>
+      <%= f.submit %>
+    <% end %>
     <%= form_tag("/routines/#{@routine.id}", method: 'post') do %>
     <section class="content">
         <div class="list__item">

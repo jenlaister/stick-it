@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def root
+    @habit = Habit.most_popular_habit
     # current_user
   end
 
@@ -13,5 +14,12 @@ class ApplicationController < ActionController::Base
   def current_user
     @user = User.find(session[:user_id])
   end
+
+
+  def popular_habit
+
+  end
+
+
 
 end

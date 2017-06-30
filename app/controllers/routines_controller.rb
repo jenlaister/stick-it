@@ -40,6 +40,8 @@ class RoutinesController < ApplicationController
     redirect_to @routine
   end
 
+  #refactor the update method
+
   def destroy
     find_routine
     @routine = Routine.destroy
